@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .example {
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #5F9F9F;
+        }
+
+        .example__ball {
+            height: 300px;
+            width: 300px;
+            position: relative;
+            border-radius: 50%;
+            background-color: #551A8B;
+            box-shadow: 5px 2px 60px rgba(0, 0, 0, .5);
+        }
+
+        .example__title {
+            text-align: center;
+            position: absolute;
+            top: 45%;
+            transform: translateY(-45%);
+            color: lighten(#551A8B, 50);
+            text-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
+        }
+    </style>
+
+</head>
+<body>
+<div class="example">
+    <div class="example__ball"></div>
+    <h1 class="example__title">GSAP is Cool!</h1>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/gsap/src/uncompressed/TweenMax.js"></script>
+<script src="node_modules/gsap/src/uncompressed/TimelineMax.js"></script>
+<script src="node_modules/gsap/src/uncompressed/easing/EasePack.js"></script>
+<script src="main.js"></script>
+
+<script>
+    // instantiate TimelineMax
+    const tl = new TimelineMax();
+
+    // scale down the text
+    // and hide it before the animation begins
+    tl.set(".example__title", {
+            scale: 0.2,
+            autoAlpha: 0
+        })
+        // scale the circle shape down before
+        // the animation begins
+        .set(".example__ball", {
+            scale: 0.2
+        })
+        // tween 1: rotate shape on X and Y axis
+        // scale it up to its regular dimensions
+        // add a fun ease
+        .to(".example__ball", 1, {
+            rotationX: 360,
+            rotationY: 180,
+            scale: 1,
+            ease: Elastic.easeIn.config(2, 1)
+        })
+        // tween 2: make text appear and
+        // scale it up to its regular size
+        // add a fun ta-da ease
+        .to(".example__title", 1, {
+            autoAlpha: 1,
+            scale: 1,
+            ease: Back.easeOut.config(4)
+        },'+=2');
+</script>
+
+
+</body>
+</html>
