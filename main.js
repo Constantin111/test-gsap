@@ -1,6 +1,7 @@
+
+
 const outerButton = document.querySelector(".myButton"),
       myElement = document.querySelector(".my-element");
-
 
 TweenMax.fromTo(myElement, 5, {
     opacity: 1
@@ -11,7 +12,7 @@ TweenMax.to(myElement, 5, {
     rotation: -45,
 });
 
-
+console.log('34214321341234');
 
 outerButton.addEventListener("click", function() {
 
@@ -47,6 +48,17 @@ TweenMax.staggerFrom(navigationItem, 2, {
 }, 0.5);
 
 /*   ///////////////////////////////////    */
+
+/*external js
+https://code.jquery.com/jquery-latest.js
+https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js
+*/
+
+/*external js
+https://code.jquery.com/jquery-latest.js
+https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js
+https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js
+*/
 
 
 
